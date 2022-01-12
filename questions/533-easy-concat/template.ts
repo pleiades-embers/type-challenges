@@ -1,1 +1,5 @@
-type Concat<T, U> = any
+type Concat<T, U> = T extends [...infer K]
+  ? U extends [...infer P]
+    ? [...K, ...P]
+    : []
+  : []
